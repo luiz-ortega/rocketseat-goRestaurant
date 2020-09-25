@@ -42,7 +42,6 @@ const Dashboard: React.FC = () => {
       const { description, price, image, name } = food;
 
       const response = await api.post('/foods', {
-        id: foods.length + 1,
         name,
         image,
         price,
@@ -75,7 +74,8 @@ const Dashboard: React.FC = () => {
   }
 
   function handleEditFood(food: IFoodPlate): void {
-    // TODO SET THE CURRENT EDITING FOOD ID IN THE STATE
+    setEditingFood(food);
+    toggleEditModal();
   }
 
   return (
